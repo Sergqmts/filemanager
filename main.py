@@ -24,6 +24,7 @@ class FileManager(tk.Tk):
         delete_button = tk.Button(self, text="Удалить файл", command=self.delete_file)
         delete_button.pack(pady=10)
 
+
     def open_file(self):
         file_path = filedialog.askopenfilename()
         if file_path:
@@ -31,11 +32,13 @@ class FileManager(tk.Tk):
                 content = file.read()
             messagebox.showinfo("Содержимое файла", content)
 
+
     def copy_file(self):
         file_path = filedialog.askopenfilename()
         if file_path:
             self.copied_file = file_path
             messagebox.showinfo("Копирование", "Файл скопирован.")
+
 
     def paste_file(self):
         if self.copied_file:
@@ -44,6 +47,7 @@ class FileManager(tk.Tk):
             messagebox.showinfo("Вставка", "Файл успешно вставлен!")
         else:
             messagebox.showwarning("Ошибка", "Нет скопированного файла.")
+
 
     def delete_file(self):
         file_path = filedialog.askopenfilename()
